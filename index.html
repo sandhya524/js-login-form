@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body{
+        background-color: rgb(246, 238, 238);
+        display: flex;
+        justify-content: center;
+        text-align: center;
+      }
+      
+      .container{
+        margin-top: 10%;
+        padding: 10%;
+        
+        text-align: center;
+        box-shadow: 1px 1px 2px gray;
+      }
+
+    </style>
+</head>
+<body>
+    <!-- 1. get the details and store in object
+2. add the object to the array by using push method
+3. sent the array to the localStorage  using JSON.stringify
+ and set item
+ 4. get the data from the localStorage using get item and JSON.parse()
+  it using JSON.parse
+  5. [obj1,obj2,obj3]- use map method to display the
+  details in cards format -->
+  <a href="page1.html">second page</a>
+  <div class="container">
+    <form action="">
+        <input type="text" placeholder="enter your name" id="name"> <br> <br>
+        <input type="number" placeholder="enter your age" id="age"><br> <br>
+        <button id="btn">submit</button>
+    </form>
+    
+  </div>
+
+
+
+  <script>
+    
+    var us_name = document.getElementById("name");
+    var us_age = document.getElementById("age");
+    var btn = document.getElementById("btn");
+
+    let users = JSON.parse(localStorage.getItem("user_data")) || [];
+
+    btn.addEventListener("click",function(e){
+        e.preventDefault()
+
+        var obj = {
+            name : us_name.value,
+            age :us_age.value
+        }
+        console.log(obj);
+        users.push(obj);
+        console.log(users);
+        localStorage.setItem(("user_data"),JSON.stringify(users));
+        // console.log(dis);
+
+        us_name.value = "";
+        us_age.value = "";      
+        
+        
+
+        
+        
+        
+    })
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        .child{
+            /* border: 1px solid; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2%;
+            box-shadow: 1px 1px 2px gray;
+            /* width: 30%; */
+            margin: 2%;
+        }
+
+    </style>
+</head>
+<body>
+
+    <script>
+        var user_data1 = JSON.parse(localStorage.getItem("user_data")) 
+        console.log(user_data1)
+
+        var container = document.createElement("div")
+        container.classList.add("con")
+        
+        user_data1.map(function(val,ind,src){
+          
+          var div = document.createElement("div")
+          var para1 = document.createElement("p")
+          var para2 = document.createElement("p")
+
+
+          div.classList.add("child")
+
+          para1.innerText = "Name: "+val.name
+          para2.innerText = "Age: "+val.age
+          console.log(para1.innerText)
+          console.log(para2.innerText)
+
+          div.append(para1,para2)
+          container.append(div)
+        })
+        document.body.append(container)
+        
+
+        
+
+    </script>
+</body>
+</html>
